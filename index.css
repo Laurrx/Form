@@ -1,0 +1,106 @@
+
+.section{
+    width: 100%;
+    height: fit-content;
+    background-image: linear-gradient(to left, rgb(53, 146, 177), rgb(142, 238, 255), rgb(53, 146, 177));
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    justify-content: center;
+}
+
+input {
+    width: 100%;
+}
+
+.increment, .decrement {
+    border: 0px;
+    background-color: inherit;
+    display: inline-block;
+}
+
+.increment:hover, .decrement:hover{
+    color: rgb(0, 148, 197);
+}
+
+h2{
+    font-weight: bold;
+}
+
+label{
+    font-weight: 600;
+}
+
+.bi-square {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bi-square:hover {
+    color: rgb(0, 148, 197);
+}
+
+.bi-check-square-fill {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bi-check-square-fill:hover {
+    color: rgb(0, 148, 197);
+}
+
+.checkboxIadl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form[id="table_1"] input,
+form[id="table_3"] input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    width: 35px;
+    display: inline-block;
+    text-align: center;
+    border: 0px;
+    background: inherit;
+}
+
+.inputFormContainer label{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.inputFormContainer input {
+    width: 100%;
+}
+
+th{
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+td{
+    text-align: justify;
+    padding: 5px;
+    border: 3px dotted;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    border: 3px dashed rgb(53, 146, 177);
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.692);
+    padding: 1.6rem;
+}
+
+

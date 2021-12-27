@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>       
+        <link rel="stylesheet" href="./index.css" />
+        <script src="./index.js"></script>
+        <title>FORM</title>
+    </head>
+    <body>
+        <div class="section">
+            <div class="container">
+                <form id="userData">
+                    <div class="inputFormContainer">
+                        <label> Nume Pacient </label>
+                        <input name="firstName" id="firstName" class="input" />
+                        <label> Prenume Pacient </label>
+                        <input name="lastName" id="lastName" class="input" />
+                        <label> CNP </label>
+                        <input name="userID" id="userID" class="input" />
+                        <label> ADRESA </label>
+                        <input name="userAddress" id="userAddress" class="input" />
+                        <label> Data </label>
+                        <input name="formDate" id="formDate" class="input" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <script>
+                    function addScore(tableId) {
+                        let tableData = document.getElementById("table_" + tableId);
+                        let tableInputs = tableData.getElementsByTagName("input");
+                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: 0;";
+                        let tableScore = 0;
+
+                        for(htmlEle in tableInputs ){
+
+                            if(tableInputs[htmlEle].value != undefined && 
+                            tableInputs[htmlEle].value != 0
+                            ){
+                                tableScore += +tableInputs[htmlEle].value;
+                            }
+                        }
+                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: " + tableScore;
+                    }
+                </script>
+                <h2>SCALA DE INCAPACITATE BARTHEL</h2>
+                <p>
+                    Masoara performantele pacientului in zece activitati ale vietii cotidiene in functie de ajutorul
+                    exterior necesar. Scorul maxim este 100 pct si corespunde unei autonomii complete. Scorul 60
+                    semnifica "independenta asistata", iar cele 75 de pct cvasiindependenta
+                </p>
+            <form id="table_1">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activitate</th>
+                            <th>Descriere</th>
+                            <th>Scor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Alimentatia</td>
+                            <td>
+                                Independent: Se poate servi de tacamuri / Are nevoie de ajutor pentru a taia
+                                alimentele / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(0, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></span></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(0, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="handlingFood" 
+                                id="handlingFood" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2. Baia</td>
+                            <td>Independent: Face baie fara ajutor / Dependent</td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(1, 5, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(1, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="bathing" 
+                                id="bathing" 
+                                title="Valori recomandate: 5, 0"
+                                min="0"
+                                max="5"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3. Toaleta Personala</td>
+                            <td>
+                                Independent: Isi poate spala fata, mainile, dintii, isi poate pieptana parul, se
+                                poate barbierii, etc. / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(2, 5, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(2, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="grooming" 
+                                id="grooming" 
+                                title="Valori recomandate: 5, 0"
+                                min="0"
+                                max="5"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4. Imbracatul</td>
+                            <td>
+                                Independent: Isi poate pune hainele, le poate scoate, isi poate innoda sireturile / Are nevoie de ajutor / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(3, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(3, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="dressing" 
+                                id="dressing" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5. Control intestinal</td>
+                            <td>
+                                Fara probleme / Probleme ocazionale / Incontinenta
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(4, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(4, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="dressing" 
+                                id="dressing" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6. Controlul vezical</td>
+                            <td>
+                                Fara probleme / Probleme ocazionale (maximum 1 episod de incontinenta pe zi) sau are nevoie de sprijin in realizarea acestuia / Incontinenta
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(5, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(5, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="bladderControl" 
+                                id="bladderControl" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7. Transferul la toaleta</td>
+                            <td>
+                                Independent pentru a merge la toaleta / Are nevoie de ajutor in a merge la toaleta, dar se poate spala singur / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(6, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></span></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(6, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="bathroomTransfer" 
+                                id="bathroomTransfer" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8. Transferul in pat sau fotoliu</td>
+                            <td>
+                                Independent in deplasarea de la scaun spre pat / Ajutor minim / Ajutor maxim pentru transfer, dar este capabil sa se aseze singur / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(7, 15, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></span></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(7, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="bedTransfer" 
+                                id="bedTransfer" 
+                                title="Valori recomandate: 15, 10, 5, 0"
+                                min="0"
+                                max="15"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9. Mersul</td>
+                            <td>
+                                Independent - se poate deplasa singur 50 m / Merge cu ajutorul unui dispozitiv/cu sprijinul unei persoane / Utilizeaza singur fotoliul rulant / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(8, 15, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></span></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(8, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="walking" 
+                                id="walking" 
+                                title="Valori recomandate: 15, 10, 5, 0"
+                                min="0"
+                                max="15"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10. Urcatul scarilor</td>
+                            <td>
+                                Independent in urcarea sau coborarea scarilor / Are nevoie de ajutorul unui dispozitiv sau al unei persoane / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(9, 10, 5, 1)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(9, 5, 1)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                name="climbingSteps" 
+                                id="climbingSteps" 
+                                title="Valori recomandate: 10, 5, 0"
+                                min="0"
+                                max="10"
+                                oninput='addScore(1);' /> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>  
+            <br>
+                <p id="totalScore_1">
+                    SCOR: 0
+                </p>  
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <h2>INDEXUL IADL</h2>
+                <p>
+                    Indexul IADL sau ADL Instrumental este de fapt o scala ce cuprinde 8 itemi, de fapt diverse activitati curente, instrumentale specific traiului zilnic. 
+                    Pentru fiecare actiune pacientul este punctat in functie de performanta in realizarea cerintei.
+                </p>
+               
+                <form name="checkboxIadl">
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>1. Capacitatea de a folosi telefonul</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>2. Face cumparaturi</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>3. Prepararea alimentelor</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>4. Menajul</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>5. Spalatul rufelor</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>6. Utilizarea mijloacelor de transport</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>7. Responsabilitate in urmarea tratamentului</label>
+                    <br>
+                    <i class="bi-square" type="checkbox" onclick='boxChecked(this);'></i>
+                    <label>8. Capacitatea de a folosi banii</label>
+                </form>
+                <br>
+                <p id="iadlScore">
+                    SCOR: 0/8
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <script>
+                    function addScore(tableId) {
+                        let tableData = document.getElementById("table_" + tableId);
+                        let tableInputs = tableData.getElementsByTagName("input");
+                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: 0;";
+                        let tableScore = 0;
+
+                        for(htmlEle in tableInputs ){
+
+                            if(tableInputs[htmlEle].value != undefined && 
+                            tableInputs[htmlEle].value != 0
+                            ){
+                                tableScore += +tableInputs[htmlEle].value;
+                            }
+                        }
+                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: " + tableScore;
+                    }
+                </script>
+                <p>
+
+                </p>
+                <p>
+                    Afectiuni somatice sau neurologice severe care pot potenta deficitul locomotor SCOR ADL
+                </p>
+            <form name="adlForm" id="table_3">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activitate</th>
+                            <th>Descriere</th>
+                            <th>Scor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Igiena corporala</td>
+                            <td>
+                                Autonomie / Ajutat partial / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(10, 2, 1, 3)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(10, 1, 3)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                    type="number" 
+                                    class="inputField" 
+                                    value="0" 
+                                    min="0" 
+                                    max="2" 
+                                    name="hygiene" 
+                                    id="hygiene" 
+                                    title="Valori recomandate: 2, 1, 0" 
+                                    oninput='addScore(3);'/> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2. Imbracare</td>
+                            <td>
+                                Autonomie / Autonomie pentru imbracare, dar ajutor pentru incaltare / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(11, 2, 1, 3)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(11, 1, 3)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number"  
+                                value="0" 
+                                min="0" 
+                                max="2" 
+                                name="selfDressing" 
+                                id="selfDressing" 
+                                title="Valori recomandate: 2, 1, 0" 
+                                oninput='addScore(3);'/> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3. Mersul la toaleta</td>
+                            <td>
+                                Autonomie / Ajutat / Ajutat la pat
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(12, 2, 1, 3)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(12, 1, 3)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                value="0" 
+                                min="0" 
+                                max="2" 
+                                name="bathroomGoing" 
+                                id="bathroomGoing" 
+                                title="Valori recomandate: 2, 1, 0" 
+                                oninput='addScore(3);'/> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4. Continenta sfincteriana</td>
+                            <td>
+                                Continent / Incontinenta ocazional / Incontinent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(13, 2, 1, 3)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(13, 1, 3)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number"  
+                                value="0" 
+                                min="0" 
+                                max="2" 
+                                name="sfincterControl" 
+                                id="sfincterControl" 
+                                title="Valori recomandate: 2, 1, 0" 
+                                oninput='addScore(3);'/> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5. Alimentatia</td>
+                            <td>
+                                Mananca singur / Ajutat pentru taiat cu cutitul / Dependent
+                            </td>
+                            <td>
+                                <button class="increment" type="button" onClick="incrementValue(14, 2, 1, 3)" value="Increment"><i class="bi bi-plus-square" style="font-size: 2.5rem"></i></button>
+                                <input readonly type="text" class="number" value="0"/>
+                                <button class="decrement" type="button" onClick="decrementValue(14, 1, 3)" value="Decrement"><i class="bi bi-dash-square" style="font-size: 2.5rem"></i></button>
+                                <!-- <input 
+                                type="number" 
+                                value="0" 
+                                min="0" 
+                                max="2" 
+                                name="eating" 
+                                id="eating" 
+                                title="Valori recomandate: 2, 1, 0" 
+                                oninput='addScore(3);'/> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <p>
+                Clasificare: st. I (10) - autonomie; st. II (8-10) - cvasiindependent; st. III (3-8) - independenta asistata; st. IV (0-3) - dependenta totala, necesita asistent personal.
+            </p>
+            <p id="totalScore_3">
+                SCOR: 0
+            </p>
+        </div>
+    </body>
+</html>
