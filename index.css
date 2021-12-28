@@ -103,4 +103,10 @@ td{
     padding: 1.6rem;
 }
 
+.btn {
+    border: 3px dashed rgb(53, 146, 177);
+    background-image: linear-gradient(rgb(53, 146, 177), rgb(142, 238, 255), rgb(53, 146, 177));
+    font-weight: bold;
+}
+
 

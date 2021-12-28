@@ -33,24 +33,6 @@
         </div>
         <div class="section">
             <div class="container">
-                <script>
-                    function addScore(tableId) {
-                        let tableData = document.getElementById("table_" + tableId);
-                        let tableInputs = tableData.getElementsByTagName("input");
-                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: 0;";
-                        let tableScore = 0;
-
-                        for(htmlEle in tableInputs ){
-
-                            if(tableInputs[htmlEle].value != undefined && 
-                            tableInputs[htmlEle].value != 0
-                            ){
-                                tableScore += +tableInputs[htmlEle].value;
-                            }
-                        }
-                        document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: " + tableScore;
-                    }
-                </script>
                 <h2>SCALA DE INCAPACITATE BARTHEL</h2>
                 <p>
                     Masoara performantele pacientului in zece activitati ale vietii cotidiene in functie de ajutorul
@@ -261,7 +243,7 @@
                 </table>
             </form>  
             <br>
-                <p id="totalScore_1">
+                <p class="score" id="totalScore_1">
                     SCOR: 0
                 </p>  
             </div>
@@ -300,14 +282,14 @@
                     <label>8. Capacitatea de a folosi banii</label>
                 </form>
                 <br>
-                <p id="iadlScore">
-                    SCOR: 0/8
+                <p class="score" id="iadlScore">
+                    SCOR: 0
                 </p>
             </div>
         </div>
         <div class="section">
             <div class="container">
-                <script>
+                <!-- <script>
                     function addScore(tableId) {
                         let tableData = document.getElementById("table_" + tableId);
                         let tableInputs = tableData.getElementsByTagName("input");
@@ -324,14 +306,11 @@
                         }
                         document.getElementById("totalScore_" +tableId).innerHTML = "SCOR: " + tableScore;
                     }
-                </script>
-                <p>
-
-                </p>
+                </script> -->
                 <p>
                     Afectiuni somatice sau neurologice severe care pot potenta deficitul locomotor SCOR ADL
                 </p>
-            <form name="adlForm" id="table_3">
+                <form name="adlForm" id="table_3">
                 <table>
                     <thead>
                         <tr>
@@ -444,13 +423,20 @@
                         </tr>
                     </tbody>
                 </table>
-            </form>
-            <p>
-                Clasificare: st. I (10) - autonomie; st. II (8-10) - cvasiindependent; st. III (3-8) - independenta asistata; st. IV (0-3) - dependenta totala, necesita asistent personal.
-            </p>
-            <p id="totalScore_3">
-                SCOR: 0
-            </p>
+                </form>
+                    <p>
+                        Clasificare: st. I (10) - autonomie; st. II (8-10) - cvasiindependent; st. III (3-8) - independenta asistata; st. IV (0-3) - dependenta totala, necesita asistent personal.
+                    </p>
+                    <p class="score" id="totalScore_3">
+                        SCOR: 0
+                    </p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <button class="btn" id="finalScore" onclick="calculateFinalScore();">CALCULEAZA SCOR FINAL</button>
+                <label id="finalScoreChange">Apasa acest buton pentru a calcula scorul final.</label>
+            </div>
         </div>
     </body>
 </html>
